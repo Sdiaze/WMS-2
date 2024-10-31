@@ -2,13 +2,14 @@
 import pyodbc
 import hashlib
 
-# Función para conectar a la base de datos
+# Función para conectar a la base de datos en Azure SQL
 def conectar_bd():
     conn = pyodbc.connect(
         'DRIVER={ODBC Driver 17 for SQL Server};'
-        'SERVER=DESKTOP-C1J5V6J;'
+        'SERVER=gestionindustrial.database.windows.net;'
         'DATABASE=AlmacenDB3;'
-        'Trusted_Connection=yes;'
+        'UID=Admin_SQL;'
+        'PWD=Aiep2024#;'
     )
     return conn
 
@@ -124,5 +125,6 @@ def obtener_todas_las_posiciones():
     posiciones = cursor.fetchall()
     conn.close()
     return posiciones
+
 
 
